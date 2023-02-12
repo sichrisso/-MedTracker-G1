@@ -1,11 +1,7 @@
 
-global using Microsoft.EntityFrameworkCore;
-global using MedAdvisor.DataAccess.MySql;
-using Microsoft.Extensions.Options;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
-using MedAdvisor.Services.Okta.MedicineService;
-using MedAdvisor.Services.Okta.AllergyService;
+using MedAdvisor.DataAccess.MySql;
 
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,14 +10,17 @@ builder.Services.AddDbContext<MedAdvisorDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("MedAdvisor")));
 
 builder.Services.AddControllers();
-
-
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<IAllergyService, AllergyService>();
-builder.Services.AddScoped<IMedicineService, MedicineService>();
 
+builder.Services.AddAuthentication(
+    CookiesAuthenticationDefaults.AuthenticationScheme)
+    .AddCookies(option =>
+    {
+        option.LoginPath = "/Access/Login";
+        option.ExpireTimeSpan = TimeSpan.FromMinutes(20);
+    });
 
 var app = builder.Build();
 
@@ -32,10 +31,15 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+app.UseAuthentication();
 
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Access}/{action=Login}/{id}"
+    );
 
 app.Run();
