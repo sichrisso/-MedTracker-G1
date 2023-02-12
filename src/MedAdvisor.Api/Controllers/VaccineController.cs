@@ -12,66 +12,66 @@ namespace MedAdvisor.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class MedicineController : ControllerBase
+    public class VaccineController : ControllerBase
     {
         private readonly MedAdvisorDbContext _dbcontext;
 
-        public MedicineController(MedAdvisorDbContext dbcontext)
+        public VaccineController(MedAdvisorDbContext dbcontext)
         {
             _dbcontext = dbcontext;
         }
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Medicine>>> GetMedicines()
+        public async Task<ActionResult<IEnumerable<Vaccine>>> GetVaccines()
         {
-            if (_dbcontext.Medicines == null)
+            if (_dbcontext.Vaccines == null)
             {
                 return NotFound();
             }
-            return await _dbcontext.Medicines.ToListAsync();
+            return await _dbcontext.Vaccines.ToListAsync();
         }
         [HttpGet("{id}")]
-        public async Task<ActionResult<Medicine>> GetMedicine(int id)
+        public async Task<ActionResult<Vaccine>> GetVaccine(int id)
         {
-            if (_dbcontext.Medicines == null)
+            if (_dbcontext.Vaccines == null)
             {
                 return NotFound();
             }
 
-            var medicine = await _dbcontext.Medicines.FindAsync(id);
-            if (medicine == null)
+            var vaccine = await _dbcontext.Vaccines.FindAsync(id);
+            if (vaccine == null)
             {
                 return NotFound();
             }
-            return medicine;
+            return vaccine;
 
         }
         [HttpPost]
-        public async Task<ActionResult<Medicine>> PostMedicine(Medicine medicine)
+        public async Task<ActionResult<Vaccine>> PostVaccine(Vaccine vaccine)
         {
-            _dbcontext.Medicines.Add(medicine);
+            _dbcontext.Vaccines.Add(vaccine);
             await _dbcontext.SaveChangesAsync();
-            return Ok(medicine);
+            return Ok(vaccine);
         }
         [HttpPut]
-        public async Task<IActionResult> Medicine(int id, Medicine request)
+        public async Task<IActionResult> Vaccine(int id, Vaccine request)
 
         {
-            var medicine = await _dbcontext.Medicines.FindAsync(id);
-            if (id != medicine.MedicineId)
+            var vaccine = await _dbcontext.Vaccines.FindAsync(id);
+            if (id != vaccine.VaccineId)
             {
                 return BadRequest();
             }
             try
             {
-                medicine.UserId = request.UserId;
-                medicine.MedicineId = request.MedicineId;
-                medicine.MedicineName = request.MedicineName;
+                vaccine.UserId = request.UserId;
+                vaccine.VaccineId = request.VaccineId;
+                vaccine.VaccineName = request.VaccineName;
 
                 await _dbcontext.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!MedicineAvailable(id))
+                if (!VaccineAvailable(id))
                 {
                     return NotFound();
                 }
@@ -83,24 +83,24 @@ namespace MedAdvisor.Api.Controllers
             }
             return Ok();
         }
-        private bool MedicineAvailable(int id)
+        private bool VaccineAvailable(int id)
         {
-            return (_dbcontext.Medicines?.Any(x => x.MedicineId == id)).GetValueOrDefault();
+            return (_dbcontext.Vaccines?.Any(x => x.VaccineId == id)).GetValueOrDefault();
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteMedicine(int id)
+        public async Task<IActionResult> DeleteVaccine(int id)
         {
-            if (_dbcontext.Medicines == null)
+            if (_dbcontext.Vaccines == null)
             {
                 return NotFound();
             }
-            var medicine = await _dbcontext.Medicines.FindAsync(id);
-            if (medicine == null)
+            var vaccine = await _dbcontext.Vaccines.FindAsync(id);
+            if (vaccine == null)
             {
                 return NotFound();
             }
-            _dbcontext.Medicines.Remove(medicine);
+            _dbcontext.Vaccines.Remove(vaccine);
             await _dbcontext.SaveChangesAsync();
             return Ok();
         }

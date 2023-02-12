@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MedAdvisor.Api.Migrations
 {
     [DbContext(typeof(MedAdvisorDbContext))]
-    [Migration("20230212073646_InitialCreate")]
+    [Migration("20230212092525_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
