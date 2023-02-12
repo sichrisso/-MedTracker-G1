@@ -1,5 +1,4 @@
 ﻿global using Microsoft.EntityFrameworkCore;
-using MedAdvisor.DataAccess.Mysql;
 using MedAdvisor.Models;
 using Microsoft.Extensions.Options;
 using System;

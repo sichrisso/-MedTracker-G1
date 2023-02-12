@@ -1,6 +1,4 @@
-﻿
-using MedAdvisor.DataAccess.Mysql;
-using MedAdvisor.Models;
+﻿using MedAdvisor.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

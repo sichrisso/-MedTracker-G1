@@ -1,9 +1,8 @@
-using Microsoft.AspNetCore.Mvc;
+/**using Microsoft.AspNetCore.Mvc;
 
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using AuthProject.Models;
 using MedCrud.models;
 
 namespace MedCrud.Controllers
@@ -44,8 +43,8 @@ namespace MedCrud.Controllers
 
                 };
 
-                await HttpContext.SignInAsync(cookieAuthenticationDefaults.AuthenticationScheme,
-                    new claimsPrincipal(), properties);
+                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
+                    new ClaimsPrincipal(), properties);
 
 
                 return RedirectToAction("Index", "Home");
@@ -57,3 +56,4 @@ namespace MedCrud.Controllers
         }
     }
 }
+**/

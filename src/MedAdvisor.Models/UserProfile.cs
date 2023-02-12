@@ -1,13 +1,13 @@
-using MedAdvisor.DataAccess.Mysql;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-namespace MedAdvisor.Models.Models
+namespace MedAdvisor.Models
 {
 
     public class UserProfile
     {
-        public int Id { get; set; }
+
         public int UserId { get; set; }
+        public string? Email { get; set; }
 
         [Required]
         [StringLength(20, MinimumLength = 4, ErrorMessage = "Name must be at least 4 characters long.")]

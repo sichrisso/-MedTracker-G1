@@ -75,20 +75,8 @@ namespace MedAdvisor.Api.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    SecondName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    JoinedDate = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    BirthDate = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    OrganDonor = table.Column<bool>(type: "bit", nullable: false),
-                    SocialSecurityNumber = table.Column<int>(type: "int", nullable: false),
-                    Nationality = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Telephone = table.Column<int>(type: "int", nullable: false),
-                    PostalAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    TravelInsurance = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PostalNumber = table.Column<int>(type: "int", nullable: false),
-                    AlarmTelephone = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    EmergencyContacts = table.Column<int>(type: "int", nullable: false),
-                    Other = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    HashPassword = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
+                    Salt = table.Column<byte[]>(type: "varbinary(max)", nullable: false)
                 },
                 constraints: table =>
                 {

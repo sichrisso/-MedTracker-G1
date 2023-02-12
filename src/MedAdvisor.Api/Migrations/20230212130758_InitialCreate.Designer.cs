@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MedAdvisor.Api.Migrations
 {
     [DbContext(typeof(MedAdvisorDbContext))]
-    [Migration("20230212073646_InitialCreate")]
+    [Migration("20230212130758_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -72,64 +72,21 @@ namespace MedAdvisor.Api.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"));
 
-                    b.Property<string>("AlarmTelephone")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("BirthDate")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("EmergencyContacts")
-                        .HasColumnType("int");
-
-                    b.Property<string>("FirstName")
+                    b.Property<byte[]>("HashPassword")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("JoinedDate")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Nationality")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("OrganDonor")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Other")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PostalAddress")
+                    b.Property<byte[]>("Salt")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("PostalNumber")
-                        .HasColumnType("int");
-
-                    b.Property<string>("SecondName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("SocialSecurityNumber")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Telephone")
-                        .HasColumnType("int");
-
-                    b.Property<string>("TravelInsurance")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varbinary(max)");
 
                     b.HasKey("UserId");
 

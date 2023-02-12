@@ -1,13 +1,13 @@
-namespace MedAdvisor.Api;
-
-public class UserDto
+namespace MedAdvisor.Models
 {
-    public UserDto(string id, string password)
+    public class UserDto
     {
-        this.Username = id;
-        this.Password = password;
+        public UserDto(string id, string password)
+        {
+            this.Email = id;
+            this.Password = password;
+        }
+        public string Email { get; set; } = string.Empty;
+        public string Password { get; set; } = string.Empty;
     }
-    public string Username { get; set; } = string.Empty;
-    public string Password { get; set; } = string.Empty;
-
 }

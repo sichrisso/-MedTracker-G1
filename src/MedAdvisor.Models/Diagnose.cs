@@ -1,6 +1,6 @@
 
-namespace MedAdvisor.DataAccess.Mysql
-{
+namespace MedAdvisor.Models
+{ 
     public class Diagnose
     {
         public int UserId { get; set; }

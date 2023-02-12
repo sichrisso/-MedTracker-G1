@@ -1,5 +1,4 @@
 ﻿global using Microsoft.EntityFrameworkCore;
-using MedAdvisor.DataAccess.Mysql;
 using MedAdvisor.Models;
 using Microsoft.Extensions.Options;
 using System;
@@ -23,6 +22,7 @@ namespace MedAdvisor.DataAccess.MySql
             optionsBuilder.UseSqlServer("Server=.\\SQLExpress;Database=MedTracker;Trusted_Connection=true;");
         }*/
         public DbSet<User> Users { get; set; }
+        public DbSet<UserProfile> UserProfiles { get; set; }
         public DbSet<Allergy> Allergies { get; set; }
         public DbSet<Medicine> Medicines { get; set; }
         public DbSet<Vaccine> Vaccines { get; set; }

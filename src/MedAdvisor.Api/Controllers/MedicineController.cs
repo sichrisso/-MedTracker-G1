@@ -1,10 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
-
 using MedAdvisor.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Identity.Client;
 using MedAdvisor.Services.Okta.MedicineService;
-using MedAdvisor.DataAccess.Mysql;
+
 
 namespace MedAdvisor.Api.Controllers
 {
