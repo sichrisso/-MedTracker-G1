@@ -28,5 +28,6 @@ namespace MedAdvisor.DataAccess.MySql
         public DbSet<Vaccine> Vaccines { get; set; }
         public DbSet<Diagnose> Diagnoses { get; set; }
         public DbSet<Document> Documents { get; set; }
+        public DbSet<Registration>  Registrations{ get; set; }
     }
 }
