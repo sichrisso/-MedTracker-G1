@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MedAdvisor.Api.Migrations
 {
     [DbContext(typeof(MedAdvisorDbContext))]
-    [Migration("20230212092525_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20230213080908_regist")]
+    partial class regist
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -198,6 +198,35 @@ namespace MedAdvisor.Api.Migrations
                     b.HasKey("DocumentId");
 
                     b.ToTable("Documents");
+                });
+
+            modelBuilder.Entity("MedAdvisor.Models.Registration", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("IsActive")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Registrations");
                 });
 #pragma warning restore 612, 618
         }
