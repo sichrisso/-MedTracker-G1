@@ -1,4 +1,6 @@
 ﻿
+using Microsoft.AspNetCore.Http;
+
 namespace MedAdvisor.Models
 {
   public class Document
@@ -7,5 +9,6 @@ namespace MedAdvisor.Models
         public int DocumentId { get; set; }
         public string Name { get; set; } = string.Empty;
         public string title { get; set; } = string.Empty;
+       public IFormFile file { get; set; }
     }
 }
