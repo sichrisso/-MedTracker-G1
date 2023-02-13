@@ -27,6 +27,6 @@ namespace MedAdvisor.Models
        
         public string Description { get; set; } = string.Empty;
         [NotMapped]
-        public IFormFile file { get; set; }
+        public IFormFile? file { get; set; } 
     }
 }

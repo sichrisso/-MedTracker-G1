@@ -1,7 +1,9 @@
-﻿using MedAdvisor.Models;
+﻿using MedAdvisor.DataAccess.Mysql;
+using MedAdvisor.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using System.Data;
 
 namespace MedAdvisor.Api.Controllers
@@ -55,6 +57,6 @@ namespace MedAdvisor.Api.Controllers
             {
                 return " email or password not correct";
             }
-        }
+        }  
     }
 }
