@@ -1,6 +1,10 @@
 ﻿
 namespace MedAdvisor.DataAccess.Mysql
 {
+    public enum Gender
+    {
+        Male, Female
+    }
     public class User
     {
         public int UserId { get; set; }
@@ -9,10 +13,7 @@ namespace MedAdvisor.DataAccess.Mysql
         public string FirstName { get; set; } = string.Empty;
         public string SecondName { get; set; } = string.Empty;
         public string JoinedDate { get; set; } = string.Empty;
-        public enum Gender
-        {
-            Female, Male
-        }
+        public Gender Gender { get; set; }
         public string BirthDate { get; set; } = string.Empty;
         public bool OrganDonor { get; set; }
         public int SocialSecurityNumber { get; set; }
