@@ -1,4 +1,4 @@
-﻿
+﻿/**
 using MedAdvisor.DataAccess.Mysql;
 using MedAdvisor.Models;
 using System;
@@ -79,3 +79,4 @@ namespace MedAdvisor.Services.Okta.MedicineService
         }
     }
 }
+*/

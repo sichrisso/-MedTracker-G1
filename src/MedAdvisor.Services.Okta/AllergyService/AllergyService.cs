@@ -1,4 +1,4 @@
-﻿
+﻿/**
 using MedAdvisor.Models;
 using System;
 using System.Collections.Generic;
@@ -72,3 +72,4 @@ namespace MedAdvisor.Services.Okta.AllergyService
         }
     }
 }
+*/

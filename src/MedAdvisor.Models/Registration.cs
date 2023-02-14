@@ -1,4 +1,4 @@
-﻿using System;
+﻿/**using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -21,3 +21,4 @@ namespace MedAdvisor.Models
         public string? IsActive { get; set; }
     }
 }
+*/
