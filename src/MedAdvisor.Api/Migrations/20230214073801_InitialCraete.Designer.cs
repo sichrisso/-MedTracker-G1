@@ -4,6 +4,7 @@ using MedAdvisor.DataAccess.MySql;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MedAdvisor.Api.Migrations
 {
     [DbContext(typeof(MedAdvisorDbContext))]
-    partial class MedAdvisorDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230214073801_InitialCraete")]
+    partial class InitialCraete
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

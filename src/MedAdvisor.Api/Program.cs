@@ -17,20 +17,12 @@ builder.Services.AddCors(options =>
                 .AllowAnyMethod();
         });
 });
-/**
-builder.Services.AddCors(p => p.AddPolicy("corsPolicy", build =>
-{
-    build.WithOrigins("http://localhost:3000").AllowAnyMethod().AllowAnyHeader();
-}));
-*/
-// Add services to the container.
+
 builder.Services.AddDbContext<MedAdvisorDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("MedAdvisor")));
 
 builder.Services.AddControllers();
 
-
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -38,7 +30,7 @@ builder.Services.AddSwaggerGen();
 var app = builder.Build();
 
 app.UseCors("corsPolicy");
-// Configure the HTTP request pipeline.
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
